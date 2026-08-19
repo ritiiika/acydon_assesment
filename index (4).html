@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORBIT — Y2K Sneaker & Luxury Universe</title>
+<meta name="description" content="ORBIT is a futuristic Y2K sneaker and luxury accessories universe featuring global sneaker brands and women’s designer bags.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,500&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#161B3E;
+    --void-deep:#0C1030;
+    --cyan:#00F0FF;
+    --pink:#FF5CA8;
+    --purple:#BC6CFF;
+    --peach:#FFB86B;
+    --ink:#F3F1FF;
+    --ink-muted:#9C9FD1;
+    --line: rgba(243,241,255,0.14);
+    --card-bg: rgba(255,255,255,0.055);
+    --glass: rgba(11,15,43,0.62);
+    --blue:#414B9E;
+    --lilac:#9792CB;
+    --pearly:#AA74A0;
+    --ruby:#852736;
+    --radius: 18px;
+    --max: 1280px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--void);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+    min-height:100vh;
+    position:relative;
+    line-height:1.5;
+    width:100%;
+    max-width:100%;
+  }
+
+  ::selection{ background: var(--pink); color: var(--void-deep); }
+
+  a{ color:inherit; text-decoration:none; }
+
+  #stars{
+    position: fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+  }
+
+  .vignette{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(188,108,255,0.20), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 85% 15%, rgba(0,240,255,0.13), transparent 60%),
+      linear-gradient(180deg, transparent 0%, var(--void) 96%);
+  }
+
+  .wrap{
+    position:relative;
+    z-index:2;
+  }
+
+  .max{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position: sticky;
+    top:0;
+    z-index: 40;
+    backdrop-filter: blur(14px);
+    background: rgba(5,7,15,0.45);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--max);
+    margin:0 auto;
+    padding: 18px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    font-family:'Bodoni Moda', serif;
+    font-weight:600;
+    font-size: 22px;
+    letter-spacing: 0.14em;
+    background: linear-gradient(120deg, #fff 0%, var(--cyan) 35%, var(--pink) 60%, #fff 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    background-size: 220% auto;
+    animation: chrome-shift 7s ease-in-out infinite;
+    cursor:pointer;
+    user-select:none;
+  }
+  @keyframes chrome-shift{
+    0%,100%{ background-position: 0% center; }
+    50%{ background-position: 100% center; }
+  }
+  .nav-links{
+    display:flex;
+    gap: 32px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .nav-links a{ transition: color .25s ease; position:relative; }
+  .nav-links a:hover{ color: var(--cyan); }
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border:1px solid var(--cyan);
+    color: var(--cyan);
+    padding: 9px 18px;
+    border-radius: 999px;
+    transition: all .25s ease;
+  }
+  .nav-cta:hover{ background: var(--cyan); color: var(--void-deep); box-shadow: 0 0 24px rgba(0,240,255,0.5); }
+  @media (max-width: 720px){ .nav-links{ display:none; } }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding: 96px 0 60px;
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items:center;
+    gap: 40px;
+    min-height: 82vh;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color: var(--peach);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:7px; height:7px;
+    border-radius:50%;
+    background: var(--peach);
+    box-shadow: 0 0 10px var(--peach);
+    animation: blink 2.4s ease-in-out infinite;
+  }
+  @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
+
+  h1.headline{
+    font-family:'Bodoni Moda', serif;
+    font-weight: 500;
+    font-size: clamp(38px, 5.4vw, 74px);
+    line-height: 1.03;
+    letter-spacing: -0.01em;
+  }
+  h1.headline em{
+    font-style: italic;
+    font-weight: 500;
+    background: linear-gradient(100deg, var(--cyan), var(--pink) 60%, var(--purple));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero p.sub{
+    margin-top: 22px;
+    max-width: 460px;
+    font-size: 17px;
+    color: var(--ink-muted);
+  }
+
+  .hero-ctas{
+    margin-top: 34px;
+    display:flex;
+    gap:16px;
+    align-items:center;
+    flex-wrap: wrap;
+  }
+  .btn-primary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--void-deep);
+    padding: 15px 26px;
+    border-radius: 999px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition: transform .25s ease, box-shadow .25s ease;
+    box-shadow: 0 0 0 rgba(0,240,255,0);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,240,255,0.35); }
+  .btn-ghost{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding: 15px 8px;
+    border-bottom: 1px solid var(--line);
+    transition: color .25s ease, border-color .25s ease;
+  }
+  .btn-ghost:hover{ color: var(--ink); border-color: var(--ink); }
+
+  /* orbit ring signature element */
+  .ring-stage{
+    position:relative;
+    aspect-ratio: 1;
+    width: min(100%, 480px);
+    justify-self:center;
+  }
+  .ring-stage svg{ width:100%; height:100%; overflow:visible; }
+  .ring-outer{ animation: spin 46s linear infinite; transform-origin: 200px 200px; }
+  .ring-mid{ animation: spin-rev 32s linear infinite; transform-origin: 200px 200px; }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+  @keyframes spin-rev{ to{ transform: rotate(-360deg); } }
+
+  .ring-node{ cursor:pointer; }
+  .ring-node circle.dot{
+    fill: var(--void);
+    stroke: var(--cyan);
+    stroke-width: 1.6;
+    transition: r .3s ease, fill .3s ease;
+  }
+  .ring-node.active circle.dot, .ring-node:hover circle.dot{
+    fill: var(--cyan);
+    filter: drop-shadow(0 0 8px var(--cyan));
+  }
+  .ring-node text{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    fill: var(--ink-muted);
+  }
+  .ring-center{
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    text-align:center;
+    pointer-events:none;
+  }
+  .ring-center .hero-shoe{
+    width: min(52vw, 190px);
+    filter: drop-shadow(0 6px 22px rgba(0,240,255,0.28));
+    animation: hover-shoe 5.5s ease-in-out infinite;
+  }
+  @keyframes hover-shoe{
+    0%,100%{ transform: translateY(0) rotate(-6deg); }
+    50%{ transform: translateY(-6px) rotate(-4deg); }
+  }
+  .ring-center .word{
+    font-family:'Bodoni Moda', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    letter-spacing: 0.06em;
+    margin-top: 6px;
+  }
+  .ring-center .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--ink-muted);
+    text-transform:uppercase;
+    margin-top:4px;
+  }
+
+  @media (max-width: 900px){
+    header.hero{ grid-template-columns: 1fr; padding-top: 130px; min-height:auto; }
+    .ring-stage{ width: min(100%, 320px); margin-top: 20px; }
+    .hero p.sub{ max-width:none; }
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker-strip{
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background:
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 14px),
+      rgba(255,255,255,0.02);
+    padding: 14px 0;
+    overflow:hidden;
+    white-space: nowrap;
+  }
+  .ticker-track{
+    display:inline-flex;
+    gap: 48px;
+    animation: ticker 34s linear infinite;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+  }
+  .ticker-track span.hl{ color: var(--peach); }
+  @keyframes ticker{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+
+  /* ---------- SECTION HEADS ---------- */
+  section{ padding: 110px 0; }
+  .section-head{
+    max-width: 620px;
+    margin-bottom: 56px;
+  }
+  .section-head .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 14px;
+    display:block;
+  }
+  .section-head h2{
+    font-family:'Bodoni Moda', serif;
+    font-weight: 500;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.1;
+  }
+  .section-head p{
+    margin-top: 16px;
+    color: var(--ink-muted);
+    font-size: 16px;
+  }
+
+  .reveal{
+    opacity:0;
+    transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ---------- ATLAS GRID ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+  .card{
+    border: 1px solid var(--line);
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 26px 24px 24px;
+    position: relative;
+    overflow:hidden;
+    transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+  }
+  .card::before{
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(140px 140px at 85% -10%, var(--accent, var(--cyan)), transparent 70%);
+    opacity: 0.16;
+    pointer-events:none;
+  }
+  .card:hover, .card.active{
+    border-color: var(--accent, var(--cyan));
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  }
+  .card .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--accent, var(--cyan));
+    text-transform: uppercase;
+  }
+  .card .shoe{
+    width: 100%;
+    height: 96px;
+    margin: 18px 0 14px;
+  }
+  .card .shoe svg{ width:100%; height:100%; }
+  .card h3{
+    font-family:'Bodoni Moda', serif;
+    font-weight:500;
+    font-size: 21px;
+    margin-bottom: 4px;
+  }
+  .card .model{
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .card .meta-row{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+  .card .swatch{
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.12);
+    flex-shrink: 0;
+  }
+  .card .sizes{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+  }
+  .card .row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .card .price{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .card button.notify{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .25s ease;
+  }
+  .card button.notify:hover{
+    border-color: var(--accent, var(--cyan));
+    color: var(--accent, var(--cyan));
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .step{
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  .step .n{
+    font-family:'Bodoni Moda', serif;
+    font-style:italic;
+    font-size: 34px;
+    color: var(--purple);
+    margin-bottom: 10px;
+    display:block;
+  }
+  .step h4{
+    font-size: 17px;
+    font-weight:600;
+    margin-bottom: 8px;
+  }
+  .step p{ color: var(--ink-muted); font-size: 14.5px; }
+  @media (max-width: 800px){ .steps{ grid-template-columns: 1fr; } }
+
+  /* ---------- HONESTY BAND ---------- */
+  .honest{
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 40px;
+    background: linear-gradient(160deg, rgba(188,108,255,0.06), rgba(0,240,255,0.03));
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items:center;
+  }
+  .honest h3{
+    font-family:'Bodoni Moda', serif;
+    font-weight:500;
+    font-size: clamp(24px,3vw,32px);
+    line-height:1.2;
+  }
+  .honest p{ color: var(--ink-muted); font-size: 15px; margin-top:12px; }
+  @media (max-width: 760px){ .honest{ grid-template-columns:1fr; padding:28px; } }
+
+  /* ---------- CTA / EMAIL ---------- */
+  .cta-block{
+    text-align:center;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .cta-block h2{
+    font-family:'Bodoni Moda', serif;
+    font-weight:500;
+    font-size: clamp(30px,4.5vw,48px);
+  }
+  .cta-block p{ color: var(--ink-muted); margin-top:14px; font-size:15.5px; }
+  .email-form{
+    margin-top: 30px;
+    display:flex;
+    gap: 10px;
+    justify-content:center;
+    flex-wrap: wrap;
+  }
+  .email-form input{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 14px 18px;
+    border-radius: 999px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 14px;
+    min-width: 260px;
+    outline:none;
+    transition: border-color .25s ease;
+  }
+  .email-form input:focus{ border-color: var(--cyan); }
+  .email-form input::placeholder{ color: var(--ink-muted); }
+  .toast{
+    margin-top: 16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--cyan);
+    opacity:0;
+    transition: opacity .4s ease;
+  }
+  .toast.show{ opacity:1; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 40px 0 60px;
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+  }
+  footer .fmark{ cursor: default; }
+
+  #comet-toast{
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(11,15,43,0.9);
+    border: 1px solid var(--peach);
+    color: var(--peach);
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 12px 22px;
+    border-radius: 999px;
+    opacity: 0;
+    pointer-events:none;
+    transition: opacity .4s ease, transform .4s ease;
+    z-index: 100;
+  }
+  #comet-toast.show{ opacity:1; transform: translateX(-50%) translateY(0); }
+
+
+  /* ---------- Y2K / PRODUCT UNIVERSE ---------- */
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    opacity:.16;
+    background:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:42px 42px;
+    mask-image:linear-gradient(to bottom, black, transparent 88%);
+  }
+
+  .neon-orb{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    filter:blur(2px);
+    opacity:.72;
+  }
+  .orb-a{
+    width:240px;height:240px;right:-90px;top:120px;
+    background:radial-gradient(circle at 35% 35%, rgba(0,240,255,.42), rgba(188,108,255,.08) 58%, transparent 72%);
+  }
+  .orb-b{
+    width:320px;height:320px;left:-160px;bottom:-80px;
+    background:radial-gradient(circle at 55% 45%, rgba(255,92,168,.34), rgba(133,39,54,.12) 55%, transparent 72%);
+  }
+
+  .hero-shell{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse 70% 70% at 78% 42%, rgba(0,240,255,.10), transparent 65%),
+      radial-gradient(ellipse 55% 70% at 15% 25%, rgba(255,92,168,.12), transparent 70%);
+  }
+
+  .hero-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:22px;
+  }
+  .hero-badge{
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.045);
+    border-radius:999px;
+    padding:7px 11px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.09em;
+    color:var(--ink-muted);
+    text-transform:uppercase;
+    backdrop-filter:blur(10px);
+  }
+  .hero-badge strong{color:var(--pink);font-weight:500;}
+
+  .search-dock{
+    margin:0 auto 30px;
+    padding:12px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:24px;
+    background:rgba(7,10,35,.70);
+    box-shadow:0 18px 60px rgba(0,0,0,.28), inset 0 0 40px rgba(188,108,255,.04);
+    backdrop-filter:blur(18px);
+    position:relative;
+  }
+  .search-box{
+    flex:1 1 260px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:0 10px;
+  }
+  .search-box span{color:var(--cyan);font-family:'IBM Plex Mono',monospace;}
+  .search-box input{
+    width:100%;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--ink);
+    font:14px 'Space Grotesk',sans-serif;
+  }
+  .search-box input::placeholder{color:#6f73a9;}
+  .filter-btn{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.035);
+    color:var(--ink-muted);
+    border-radius:999px;
+    padding:10px 14px;
+    cursor:pointer;
+    font:11px 'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    transition:.25s ease;
+  }
+  .filter-btn:hover,.filter-btn.active{
+    color:var(--void-deep);
+    background:var(--cyan);
+    border-color:var(--cyan);
+    box-shadow:0 0 24px rgba(0,240,255,.25);
+  }
+
+  .section-rule{
+    height:1px;
+    margin:0 0 70px;
+    background:linear-gradient(90deg, transparent, rgba(0,240,255,.45), rgba(255,92,168,.45), transparent);
+  }
+
+  .concept-note{
+    margin-top:14px;
+    text-align:right;
+    color:#6f73a9;
+    font:9px 'IBM Plex Mono',monospace;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  /* 390px safety: long labels, grids and decorative elements must never force a horizontal scroll. */
+  img,svg,canvas{max-width:100%;}
+  .wrap,.max,section,header,footer,nav,.hero-shell,.luxury-shell{max-width:100%;min-width:0;}
+  .nav-inner,.hero,.search-dock,.product-card,.bag-card,.brand-pill,.stat{min-width:0;}
+  .product-card,.bag-card{overflow:hidden;}
+  @media(max-width:390px){
+    .max{padding-left:16px;padding-right:16px;}
+    .nav-inner{padding-left:16px;padding-right:16px;}
+    .nav-cta{padding:8px 12px;font-size:10px;}
+    header.hero{padding-top:92px;padding-bottom:42px;}
+    h1.headline{font-size:clamp(36px,12vw,52px);}
+    .hero p.sub{font-size:15px;}
+    .hero-badges{gap:7px;}
+    .hero-badge{font-size:9px;padding:6px 9px;}
+    .ring-stage{width:min(100%,300px);}
+    .search-dock{border-radius:18px;padding:9px;}
+    .filter-btn{padding:8px 10px;font-size:9px;}
+    .concept-note{text-align:left;line-height:1.5;}
+    .universe-stats{gap:8px;}
+    .stat{padding:14px 12px;}
+    .stat b{font-size:22px;}
+    .stat span{font-size:8px;}
+  }
+
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .product-card{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
+    min-height:370px;
+    background:
+      radial-gradient(circle at 75% 18%, var(--accent), transparent 26%),
+      linear-gradient(150deg, rgba(255,255,255,.07), rgba(255,255,255,.018));
+    transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+    isolation:isolate;
+  }
+  .product-card::before{
+    content:'';
+    position:absolute;inset:0;
+    background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.12) 50%,transparent 70%);
+    transform:translateX(-120%);
+    transition:transform .8s ease;
+    z-index:3;
+    pointer-events:none;
+  }
+  .product-card:hover::before{transform:translateX(120%);}
+  .product-card:hover{
+    transform:translateY(-7px) rotateX(1deg);
+    border-color:var(--accent);
+    box-shadow:0 22px 55px rgba(0,0,0,.34),0 0 30px color-mix(in srgb,var(--accent) 22%,transparent);
+  }
+  .product-visual{
+    height:220px;
+    display:grid;
+    place-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,.09), transparent 42%),
+      repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 2px,transparent 2px 10px);
+  }
+  .product-visual::after{
+    content:'';
+    position:absolute;
+    width:170px;height:170px;
+    border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);
+    border-radius:50%;
+    box-shadow:0 0 30px color-mix(in srgb,var(--accent) 20%,transparent);
+    opacity:.65;
+  }
+  .product-shoe{
+    width:78%;
+    max-width:280px;
+    position:relative;
+    z-index:2;
+    filter:drop-shadow(0 15px 20px rgba(0,0,0,.35));
+    transform:rotate(-7deg);
+    transition:transform .4s ease;
+  }
+  .product-card:hover .product-shoe{transform:rotate(-4deg) translateY(-7px) scale(1.04);}
+  .brand-mark{
+    position:absolute;
+    top:14px;left:15px;
+    z-index:4;
+    padding:6px 9px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
+    background:rgba(5,7,20,.58);
+    color:var(--ink);
+    font:10px 'IBM Plex Mono',monospace;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    backdrop-filter:blur(10px);
+  }
+  .drop-tag{
+    position:absolute;
+    top:14px;right:15px;
+    z-index:4;
+    color:var(--pink);
+    font:10px 'IBM Plex Mono',monospace;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+  .product-info{padding:18px 18px 17px;position:relative;z-index:4;}
+  .product-info h3{
+    font-family:'Bodoni Moda',serif;
+    font-size:20px;
+    font-weight:500;
+  }
+  .product-info .model{color:var(--ink-muted);font-size:12px;margin-top:2px;}
+  .product-bottom{
+    display:flex;align-items:end;justify-content:space-between;gap:12px;
+    margin-top:15px;
+  }
+  .product-price{font:13px 'IBM Plex Mono',monospace;color:var(--peach);}
+  .add-btn{
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.045);
+    color:var(--ink);
+    padding:8px 11px;
+    border-radius:999px;
+    cursor:pointer;
+    font:10px 'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    transition:.25s ease;
+  }
+  .add-btn:hover{background:var(--pink);border-color:var(--pink);color:var(--void-deep);}
+
+  .brand-wall{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:10px;
+  }
+  .brand-pill{
+    min-height:76px;
+    display:grid;place-items:center;
+    border:1px solid rgba(255,255,255,.11);
+    border-radius:15px;
+    background:rgba(255,255,255,.035);
+    color:var(--ink-muted);
+    font-family:'Bodoni Moda',serif;
+    font-size:16px;
+    text-align:center;
+    padding:10px;
+    transition:.25s ease;
+  }
+  .brand-pill:hover{
+    color:var(--ink);
+    border-color:var(--purple);
+    transform:translateY(-4px);
+    box-shadow:0 0 25px rgba(188,108,255,.16);
+  }
+
+  .luxury-shell{
+    position:relative;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:28px;
+    padding:34px;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(255,92,168,.15), transparent 28%),
+      radial-gradient(circle at 10% 85%, rgba(65,75,158,.2), transparent 30%),
+      linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  }
+  .luxury-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    margin-top:30px;
+  }
+  .bag-card{
+    min-height:300px;
+    border:1px solid rgba(255,255,255,.11);
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    background:linear-gradient(150deg,rgba(151,146,203,.13),rgba(133,39,54,.08));
+    transition:.3s ease;
+  }
+  .bag-card:hover{transform:translateY(-6px);border-color:var(--pink);box-shadow:0 18px 50px rgba(0,0,0,.3);}
+  .bag-art{
+    height:190px;
+    display:grid;place-items:center;
+    position:relative;
+    background:
+      radial-gradient(circle,rgba(255,255,255,.10),transparent 45%),
+      linear-gradient(135deg,rgba(65,75,158,.18),rgba(255,92,168,.08));
+  }
+  .bag-art::before{
+    content:'';
+    width:126px;height:105px;
+    border-radius:18px 18px 25px 25px;
+    border:2px solid var(--accent);
+    background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.025));
+    box-shadow:0 0 34px color-mix(in srgb,var(--accent) 24%,transparent);
+    transform:perspective(500px) rotateY(-8deg);
+  }
+  .bag-art::after{
+    content:'';
+    position:absolute;
+    width:68px;height:62px;
+    top:42px;
+    border:2px solid var(--accent);
+    border-bottom:0;
+    border-radius:50px 50px 0 0;
+    opacity:.8;
+  }
+  .bag-info{padding:16px;}
+  .bag-info h3{font:500 20px 'Bodoni Moda',serif;}
+  .bag-info p{font-size:12px;color:var(--ink-muted);margin-top:3px;}
+  .bag-info .price{display:block;margin-top:13px;color:var(--peach);font:11px 'IBM Plex Mono',monospace;letter-spacing:.05em;}
+
+  .universe-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:28px;
+  }
+  .stat{
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:18px;
+    background:rgba(255,255,255,.035);
+  }
+  .stat b{display:block;font:500 27px 'Bodoni Moda',serif;color:var(--ink);}
+  .stat span{display:block;margin-top:5px;color:var(--ink-muted);font:10px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.1em;}
+
+  .category-switch{
+    display:flex;gap:9px;flex-wrap:wrap;margin-top:24px;
+  }
+  .category-switch button{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ink-muted);
+    padding:9px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    font:10px 'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+  .category-switch button.active,.category-switch button:hover{
+    color:var(--void-deep);
+    background:var(--peach);
+    border-color:var(--peach);
+  }
+
+  .empty-state{
+    grid-column:1/-1;
+    padding:60px 20px;
+    text-align:center;
+    border:1px dashed var(--line);
+    border-radius:22px;
+    color:var(--ink-muted);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+  }
+
+  @media(max-width:1050px){
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .brand-wall{grid-template-columns:repeat(4,1fr);}
+    .luxury-grid{grid-template-columns:repeat(2,1fr);}
+    .universe-stats{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:620px){
+    .product-grid,.luxury-grid{grid-template-columns:1fr;}
+    .brand-wall{grid-template-columns:repeat(2,1fr);}
+    .luxury-shell{padding:22px;}
+    .universe-stats{grid-template-columns:1fr 1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<div class="vignette"></div>
+
+<div class="wrap">
+
+  <nav>
+    <div class="nav-inner">
+      <div class="logo" id="logo-click">ORBIT</div>
+      <div class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="#brands">Brands</a>
+        <a href="#luxury">Luxury</a>
+        <a href="#atlas">Radar</a>
+      </div>
+      <a href="#shop" class="nav-cta">Explore</a>
+    </div>
+  </nav>
+
+  <div class="hero-shell">
+    <div class="neon-orb orb-a"></div>
+    <div class="neon-orb orb-b"></div>
+    <div class="max">
+      <header class="hero">
+        <div>
+          <span class="eyebrow">Global streetwear · luxury · Y2K</span>
+          <h1 class="headline">Your closet,<br><em>in another universe.</em></h1>
+          <p class="sub">Discover hyped sneakers, futuristic streetwear and statement bags from the world's biggest names — curated inside one neon universe.</p>
+          <div class="hero-badges">
+            <span class="hero-badge"><strong>24/7</strong> drop radar</span>
+            <span class="hero-badge">Global brands</span>
+            <span class="hero-badge">Women + men</span>
+            <span class="hero-badge">Luxury edit</span>
+          </div>
+          <div class="hero-ctas">
+            <a href="#shop" class="btn-primary">Explore the collection →</a>
+          </div>
+        </div>
+
+      <div class="ring-stage" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(243,241,255,0.10)" stroke-width="1"/>
+          <circle cx="200" cy="200" r="112" fill="none" stroke="rgba(243,241,255,0.14)" stroke-dasharray="2 6" stroke-width="1"/>
+          <g class="ring-outer">
+            <g class="ring-node" data-city="tyo" transform="translate(200,50)">
+              <circle class="dot" r="5"/>
+              <text x="10" y="4">TYO</text>
+            </g>
+            <g class="ring-node" data-city="mil" transform="translate(330,270)">
+              <circle class="dot" r="5"/>
+              <text x="10" y="4">MIL</text>
+            </g>
+            <g class="ring-node" data-city="sao" transform="translate(70,270)">
+              <circle class="dot" r="5"/>
+              <text x="-32" y="4">SAO</text>
+            </g>
+          </g>
+          <g class="ring-mid">
+            <g class="ring-node" data-city="sel" transform="translate(200,88)">
+              <circle class="dot" r="4.5"/>
+              <text x="9" y="4">SEL</text>
+            </g>
+            <g class="ring-node" data-city="ldn" transform="translate(302,246)">
+              <circle class="dot" r="4.5"/>
+              <text x="9" y="4">LDN</text>
+            </g>
+            <g class="ring-node" data-city="mel" transform="translate(98,246)">
+              <circle class="dot" r="4.5"/>
+              <text x="-30" y="4">MEL</text>
+            </g>
+          </g>
+        </svg>
+        <div class="ring-center">
+          <svg class="hero-shoe" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="heroShoeGrad" x1="0%" y1="0%" x2="100%" y2="60%">
+                <stop offset="0%" stop-color="var(--cyan)"/>
+                <stop offset="55%" stop-color="var(--pink)"/>
+                <stop offset="100%" stop-color="var(--purple)"/>
+              </linearGradient>
+            </defs>
+            <path d="M20 88 C18 74 30 66 46 62 L92 40 C112 30 138 26 162 32 L198 44 C216 50 228 58 230 70 C231 78 225 84 214 86 L30 86 C24 86 20 87 20 88 Z"
+              fill="url(#heroShoeGrad)" fill-opacity="0.14" stroke="url(#heroShoeGrad)" stroke-width="2.4"/>
+            <path d="M20 88 C18 74 30 66 46 62" stroke="var(--cyan)" stroke-width="2.6" fill="none"/>
+            <path d="M22 92 C60 98 170 98 216 90" stroke="url(#heroShoeGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <g stroke="var(--ink)" stroke-opacity="0.85" stroke-width="1.6" stroke-linecap="round">
+              <path d="M40 87 L40 93"/><path d="M56 87 L56 94"/><path d="M74 87 L74 95"/>
+              <path d="M96 87 L96 95"/><path d="M120 87 L120 95"/><path d="M144 86 L144 94"/>
+              <path d="M168 86 L168 94"/><path d="M190 85 L190 92"/><path d="M206 84 L206 91"/>
+            </g>
+            <path d="M62 84 L58 50" stroke="var(--ink-muted)" stroke-width="1.2" fill="none" opacity="0.55"/>
+            <path d="M100 84 L98 36" stroke="var(--ink-muted)" stroke-width="1.2" fill="none" opacity="0.55"/>
+            <path d="M140 84 L146 30" stroke="var(--ink-muted)" stroke-width="1.2" fill="none" opacity="0.55"/>
+            <path d="M100 46 L118 38 M106 52 L126 44 M112 58 L132 50 M118 64 L138 56 M124 70 L144 62"
+              stroke="var(--pink)" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+            <path d="M92 40 C112 30 138 26 162 32" stroke="var(--peach)" stroke-width="2" fill="none" opacity="0.7"/>
+          </svg>
+          <div class="word">ORBIT</div>
+          <div class="tag">Sneaker Atlas</div>
+        </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <div class="ticker-strip" aria-hidden="true">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+
+  <div class="max">
+
+    <section id="shop">
+      <div class="section-head reveal">
+        <span class="kicker">The drop universe</span>
+        <h2>Big brands. Loud colour. Zero blank space.</h2>
+        <p>Explore a concept catalogue by brand, category or vibe. These demo products are visual prototypes for the ORBIT experience, not claims of real inventory or brand affiliation.</p>
+      </div>
+
+      <div class="search-dock reveal">
+        <div class="search-box">
+          <span>⌕</span>
+          <input id="product-search" type="search" placeholder="Search sneakers, brands, bags..." aria-label="Search products">
+        </div>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="sneakers">Sneakers</button>
+        <button class="filter-btn" data-filter="luxury">Luxury</button>
+        <button class="filter-btn" data-filter="women">Women</button>
+        <button class="filter-btn" data-filter="y2k">Y2K</button>
+      </div>
+
+      <div class="product-grid reveal" id="product-grid"></div>
+      <p class="concept-note">DEMO CATALOGUE · VISUAL CONCEPTS ONLY · NO AFFILIATION OR INVENTORY CLAIMS</p>
+
+      <div class="universe-stats reveal">
+        <div class="stat"><b>Global</b><span>Brand discovery</span></div>
+        <div class="stat"><b>Y2K</b><span>Visual language</span></div>
+        <div class="stat"><b>Luxury</b><span>Women's edit</span></div>
+        <div class="stat"><b>Live</b><span>Interactive browsing</span></div>
+      </div>
+    </section>
+
+    <section id="brands">
+      <div class="section-head reveal">
+        <span class="kicker">Brand constellation</span>
+        <h2>The names you already know.</h2>
+        <p>Style references from performance icons and high-fashion houses. Brand names are shown for discovery only; ORBIT is an independent concept and is not affiliated with these brands.</p>
+      </div>
+      <div class="brand-wall reveal" id="brand-wall"></div>
+    </section>
+
+    <section id="atlas">
+      <div class="section-head reveal">
+        <span class="kicker">Drop radar</span>
+        <h2>Six cities. One glowing radar.</h2>
+        <p>Keep the original ORBIT concept, but give it a stronger shopping role: follow what is moving across Tokyo, Seoul, Milan, London, São Paulo and Melbourne.</p>
+      </div>
+      <div class="grid" id="atlas-grid"></div>
+    </section>
+
+    <section id="luxury">
+      <div class="luxury-shell reveal">
+        <div class="section-head" style="margin-bottom:0">
+          <span class="kicker" style="color:var(--pink)">Women's luxury orbit</span>
+          <h2>Designer bags, but make it cosmic.</h2>
+          <p>Statement silhouettes from luxury fashion houses sit alongside the sneaker edit — presented as visual concept cards, with no claim of inventory, pricing or brand affiliation.</p>
+          <div class="category-switch">
+            <button class="active">Bags</button>
+            <button>Mini bags</button>
+            <button>Shoulder bags</button>
+            <button>Iconic pieces</button>
+          </div>
+        </div>
+        <div class="luxury-grid" id="luxury-grid"></div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="section-head reveal">
+        <span class="kicker">How it actually works</span>
+        <h2>Three steps. No middle-man reselling.</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="n">01</span>
+          <h4>We scan drop calendars</h4>
+          <p>Each label's own site and socials — restock windows, raffle links, waitlists — checked on a schedule, not guessed at.</p>
+        </div>
+        <div class="step">
+          <span class="n">02</span>
+          <h4>You set a watch</h4>
+          <p>Pick the cities or labels you care about. One alert per drop, sent when the window actually opens.</p>
+        </div>
+        <div class="step">
+          <span class="n">03</span>
+          <h4>You buy direct</h4>
+          <p>Every link routes to the label's own store. We never hold inventory and never mark up a price.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="honest">
+      <div class="honest reveal">
+        <div>
+          <h3>We're small. We're not pretending otherwise.</h3>
+          <p>ORBIT is a two-person watchlist that grew into a habit for a few hundred people. We won't show you a fake "50,000+ sneakerheads" counter to feel bigger than we are — the six labels above are the actual list we track today.</p>
+        </div>
+        <div>
+          <p style="margin-top:0;">If a label stops shipping internationally, or a restock link goes dead, we pull the card the same day — not "coming soon" forever.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="join">
+      <div class="cta-block reveal">
+        <h2>Enter the ORBIT universe.</h2>
+        <p>Save your favourite edits and keep exploring the collection. This demo keeps the interaction local — no real account or email is created.</p>
+        <form class="email-form" id="join-form">
+          <input type="email" required placeholder="you@email.com" aria-label="Email address">
+          <button type="submit" class="btn-primary" style="border:none;">Enter ORBIT</button>
+        </form>
+        <div class="toast" id="join-toast">Demo saved — no real account was created.</div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="max footer-inner">
+      <span class="fmark">© ORBIT — fashion universe · concept demo</span>
+      <span>Sneakers · Streetwear · Luxury bags</span>
+      <span>Tokyo · Seoul · Milan · London · Paris · New York</span>
+    </div>
+  </footer>
+
+</div>
+
+<div id="comet-toast">🌠 you found the comet</div>
+
+<script>
+/* ---------------- Starfield + parallax ---------------- */
+(function(){
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let w, h, stars = [];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = document.documentElement.scrollHeight;
+    const count = Math.floor((w * Math.min(h, window.innerHeight * 2.2)) / 9000);
+    stars = Array.from({length: Math.max(60, Math.min(count, 220))}, () => ({
+      x: Math.random() * w,
+      y: Math.random() * Math.min(h, window.innerHeight * 2.2),
+      r: Math.random() * 1.3 + 0.3,
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.4 + Math.random() * 0.8
+    }));
+  }
+
+  let parallaxX = 0, parallaxY = 0;
+  window.addEventListener('mousemove', (e) => {
+    parallaxX = (e.clientX / window.innerWidth - 0.5) * 14;
+    parallaxY = (e.clientY / window.innerHeight - 0.5) * 14;
+  });
+
+  let t = 0;
+  function draw(){
+    ctx.clearRect(0, 0, w, h);
+    ctx.save();
+    ctx.translate(parallaxX, parallaxY);
+    stars.forEach(s => {
+      const twinkle = reduceMotion ? 1 : 0.5 + Math.sin(t * 0.001 * s.speed + s.phase) * 0.5;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(243,241,255,${0.25 + twinkle * 0.55})`;
+      ctx.fill();
+    });
+    ctx.restore();
+    t += 16;
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  draw();
+  if(reduceMotion) draw();
+})();
+
+
+/* ---------------- Global shop universe ---------------- */
+const products = [
+  {brand:'Nike', name:'Runner Edit', model:'Cyber Bubble concept', type:'sneakers', tags:'sneakers y2k', accent:'#00F0FF', code:'NIKE'},
+  {brand:'Jordan', name:'Retro Court Edit', model:'Neon Flight concept', type:'sneakers', tags:'sneakers y2k', accent:'#FF5CA8', code:'JORDAN'},
+  {brand:'adidas', name:'Classic Low Edit', model:'Future Silver concept', type:'sneakers', tags:'sneakers y2k', accent:'#BC6CFF', code:'ADIDAS'},
+  {brand:'New Balance', name:'Tech Runner Edit', model:'Lunar Grey concept', type:'sneakers', tags:'sneakers women y2k', accent:'#FFB86B', code:'NB'},
+  {brand:'ASICS', name:'Gel Runner Edit', model:'Digital Glow concept', type:'sneakers', tags:'sneakers women y2k', accent:'#00F0FF', code:'ASICS'},
+  {brand:'PUMA', name:'Speed Racer Edit', model:'Pink Plasma concept', type:'sneakers', tags:'sneakers women y2k', accent:'#FF5CA8', code:'PUMA'},
+  {brand:'Balenciaga', name:'Sculpted Runner Edit', model:'Moon Chrome concept', type:'sneakers', tags:'sneakers luxury y2k', accent:'#BC6CFF', code:'BAL'},
+  {brand:'Prada', name:'Tech Sneaker Edit', model:'Nebula Black concept', type:'sneakers', tags:'sneakers luxury', accent:'#FFB86B', code:'PRADA'},
+  {brand:'Gucci', name:'Court Sneaker Edit', model:'Cosmic GG concept', type:'sneakers', tags:'sneakers luxury women', accent:'#00F0FF', code:'GUCCI'},
+  {brand:'Miu Miu', name:'Pearl Sneaker Edit', model:'Pearl Pixel concept', type:'sneakers', tags:'sneakers luxury women y2k', accent:'#FF5CA8', code:'MIU MIU'},
+  {brand:'Louis Vuitton', name:'Trainer Edit', model:'Laser Lilac concept', type:'sneakers', tags:'sneakers luxury women', accent:'#BC6CFF', code:'LV'},
+  {brand:'Supreme', name:'Street Runner Edit', model:'Red Signal concept', type:'sneakers', tags:'sneakers y2k', accent:'#FFB86B', code:'SUPREME'}
+];
+
+const productGrid = document.getElementById('product-grid');
+
+function miniShoe(accent){
+  return `
+  <svg class="product-shoe" viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="g${accent.replace('#','')}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="${accent}"/>
+        <stop offset=".55" stop-color="#FF5CA8"/>
+        <stop offset="1" stop-color="#BC6CFF"/>
+      </linearGradient>
+    </defs>
+    <path d="M22 103C19 87 34 76 55 70L105 45C129 33 158 28 188 35L232 49C253 56 274 68 278 81C281 91 274 99 257 101H36C29 101 24 102 22 103Z"
+      fill="url(#g${accent.replace('#','')})" fill-opacity=".18" stroke="url(#g${accent.replace('#','')})" stroke-width="3"/>
+    <path d="M24 105C77 117 206 116 263 104" stroke="${accent}" stroke-width="8" stroke-linecap="round"/>
+    <path d="M75 99L68 57M124 98L121 45M174 96L181 39" stroke="rgba(243,241,255,.65)" stroke-width="2"/>
+    <path d="M122 58L151 47M130 67L159 56M138 76L167 65M146 85L175 74" stroke="#FF5CA8" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="226" cy="63" r="7" fill="${accent}" filter="drop-shadow(0 0 7px ${accent})"/>
+  </svg>`;
+}
+
+function renderProducts(filter='all', query=''){
+  const q = query.trim().toLowerCase();
+  const filtered = products.filter(p => {
+    const matchesFilter = filter === 'all' || p.type === filter || p.tags.includes(filter);
+    const text = `${p.brand} ${p.name} ${p.model} ${p.tags}`.toLowerCase();
+    return matchesFilter && (!q || text.includes(q));
+  });
+
+  if(!filtered.length){
+    productGrid.innerHTML = `<div class="empty-state">NO SIGNAL IN THIS SECTOR · TRY ANOTHER SEARCH</div>`;
+    return;
+  }
+
+  productGrid.innerHTML = filtered.map((p,i)=>`
+    <article class="product-card" style="--accent:${p.accent}">
+      <div class="product-visual">
+        <span class="brand-mark">${p.code}</span>
+        <span class="drop-tag">${i % 3 === 0 ? 'NEW DROP' : i % 3 === 1 ? 'HOT' : 'CURATED'}</span>
+        ${miniShoe(p.accent)}
+      </div>
+      <div class="product-info">
+        <h3>${p.brand}</h3>
+        <div class="model">${p.name} · ${p.model}</div>
+        <div class="product-bottom">
+          <span class="product-price">CONCEPT EDIT</span>
+          <button class="add-btn" type="button">View edit</button>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(btn.dataset.filter, document.getElementById('product-search').value);
+  });
+});
+document.getElementById('product-search').addEventListener('input', e=>{
+  const active = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+  renderProducts(active, e.target.value);
+});
+productGrid.addEventListener('click', e=>{
+  const btn=e.target.closest('.add-btn');
+  if(!btn)return;
+  btn.textContent='Saved ✓';
+  setTimeout(()=>btn.textContent='View edit',1500);
+});
+renderProducts();
+
+const brands = ['Nike','Jordan','adidas','New Balance','ASICS','PUMA','Supreme','Vans','Balenciaga','Prada','Gucci','Louis Vuitton','Miu Miu','Jacquemus','Coach','On'];
+document.getElementById('brand-wall').innerHTML = brands.map(b=>`<div class="brand-pill">${b}</div>`).join('');
+
+const luxuryBags = [
+  {brand:'Louis Vuitton',name:'Monogram-inspired Edit',accent:'#FFB86B'},
+  {brand:'Gucci',name:'GG-inspired Mini Edit',accent:'#FF5CA8'},
+  {brand:'Prada',name:'Re-Nylon-inspired Edit',accent:'#00F0FF'},
+  {brand:'Miu Miu',name:'Arcadie-inspired Mini Edit',accent:'#BC6CFF'},
+  {brand:'Jacquemus',name:'Miniature Silhouette Edit',accent:'#FFB86B'},
+  {brand:'Balenciaga',name:'Hourglass-inspired Edit',accent:'#FF5CA8'}
+];
+document.getElementById('luxury-grid').innerHTML = luxuryBags.map(b=>`
+  <article class="bag-card" style="--accent:${b.accent}">
+    <div class="bag-art"></div>
+    <div class="bag-info">
+      <h3>${b.brand}</h3>
+      <p>${b.name}</p>
+      <span class="price">LUXURY CONCEPT · STYLE REFERENCE</span>
+    </div>
+  </article>
+`).join('');
+
+
+/* ---------------- Atlas data + cards ---------------- */
+const atlas = [
+  { city:'tyo', code:'TYO', region:'Tokyo', label:'Pulse Studio', model:'Drift Runner 002', accent:'#00F0FF', sizes:'EU 38–45' },
+  { city:'sel', code:'SEL', region:'Seoul', label:'Hangang Lab', model:'Mono Glide', accent:'#BC6CFF', sizes:'EU 36–44' },
+  { city:'mil', code:'MIL', region:'Milan', label:'Notte Atelier', model:'Vetro High', accent:'#FF5CA8', sizes:'EU 39–46' },
+  { city:'ldn', code:'LDN', region:'London', label:'Static Works', model:'Fog Trainer', accent:'#00F0FF', sizes:'UK 5–11' },
+  { city:'sao', code:'SAO', region:'São Paulo', label:'Solar Feira', model:'Bossa Low', accent:'#FFB86B', sizes:'BR 34–43' },
+  { city:'mel', code:'MEL', region:'Melbourne', label:'Salt & Code', model:'Reef Runner', accent:'#BC6CFF', sizes:'US 6–12' },
+];
+
+const shoeSVG = (accent) => `
+<svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 74 C12 62 22 55 36 51 L 78 32 C 96 23 118 20 138 26 L 166 35 C 182 40 192 47 194 58 C 195 65 190 70 180 72 L 24 72 C 18 72 14 73 14 74 Z"
+    stroke="${accent}" stroke-width="2" fill="${accent}" fill-opacity="0.10"/>
+  <path d="M16 77 C 50 82 148 82 184 75" stroke="${accent}" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+  <g stroke="${accent}" stroke-width="1.3" stroke-linecap="round" opacity="0.6">
+    <path d="M34 72 L34 77"/><path d="M50 72 L50 78"/><path d="M66 72 L66 79"/>
+    <path d="M84 72 L84 79"/><path d="M104 71 L104 79"/><path d="M124 71 L124 78"/>
+    <path d="M144 70 L144 77"/><path d="M162 69 L162 76"/>
+  </g>
+  <path d="M52 70 L48 42" stroke="${accent}" stroke-width="1" opacity="0.4"/>
+  <path d="M86 70 L84 30" stroke="${accent}" stroke-width="1" opacity="0.4"/>
+  <path d="M86 43 L104 36 M92 49 L110 42 M98 55 L116 48"
+    stroke="${accent}" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+</svg>`;
+
+const grid = document.getElementById('atlas-grid');
+atlas.forEach(item => {
+  const card = document.createElement('div');
+  card.className = 'card reveal';
+  card.style.setProperty('--accent', item.accent);
+  card.dataset.city = item.city;
+  card.innerHTML = `
+    <span class="code">${item.code} · ${item.region}</span>
+    <div class="shoe">${shoeSVG(item.accent)}</div>
+    <h3>${item.label}</h3>
+    <div class="model">${item.model}</div>
+    <div class="meta-row">
+      <span class="swatch" style="background:${item.accent}" aria-hidden="true"></span>
+      <span class="sizes">Sizes ${item.sizes}</span>
+    </div>
+    <div class="row">
+      <span class="price">${item.price}</span>
+      <button class="notify" type="button">Notify me</button>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+/* card <-> ring hover link */
+function linkNodesAndCards(){
+  const nodes = document.querySelectorAll('.ring-node');
+  const cards = document.querySelectorAll('.card[data-city]');
+  const setActive = (city, on) => {
+    document.querySelectorAll(`[data-city="${city}"]`).forEach(el => el.classList.toggle('active', on));
+  };
+  nodes.forEach(n => {
+    n.addEventListener('mouseenter', () => setActive(n.dataset.city, true));
+    n.addEventListener('mouseleave', () => setActive(n.dataset.city, false));
+  });
+  cards.forEach(c => {
+    c.addEventListener('mouseenter', () => setActive(c.dataset.city, true));
+    c.addEventListener('mouseleave', () => setActive(c.dataset.city, false));
+  });
+}
+linkNodesAndCards();
+
+/* notify button feedback (no fake counters, just local confirmation) */
+grid.addEventListener('click', (e) => {
+  const btn = e.target.closest('button.notify');
+  if(!btn) return;
+  const original = btn.textContent;
+  btn.textContent = 'Added ✓';
+  btn.style.opacity = '0.7';
+  setTimeout(() => { btn.textContent = original; btn.style.opacity = '1'; }, 1800);
+});
+
+/* ---------------- Ticker content ---------------- */
+const tickerItems = [
+  'TYO · PULSE STUDIO — restock window opens Friday',
+  'LDN · STATIC WORKS — raffle closes tonight',
+  'SEL · HANGANG LAB — new colorway listed',
+  'MIL · NOTTE ATELIER — shipping resumes this week',
+  'SAO · SOLAR FEIRA — waitlist open',
+  'MEL · SALT & CODE — restock pending confirmation',
+];
+const track = document.getElementById('ticker-track');
+const tickerHTML = tickerItems.map(t => {
+  const parts = t.split(' — ');
+  return `<span>${parts[0]} — <span class="hl">${parts[1]}</span></span>`;
+}).join('');
+track.innerHTML = tickerHTML + tickerHTML; // duplicate for seamless loop
+
+/* ---------------- Scroll reveal ---------------- */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+/* ---------------- Join form ---------------- */
+const joinForm = document.getElementById('join-form');
+const joinToast = document.getElementById('join-toast');
+joinForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  joinForm.querySelector('input').value = '';
+  joinToast.classList.add('show');
+  setTimeout(() => joinToast.classList.remove('show'), 4000);
+});
+
+/* ---------------- Easter egg: Konami code ---------------- */
+(function(){
+  const seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let pos = 0;
+  const toast = document.getElementById('comet-toast');
+  window.addEventListener('keydown', (e) => {
+    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    if(key === seq[pos]){
+      pos++;
+      if(pos === seq.length){
+        pos = 0;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3200);
+      }
+    } else {
+      pos = (key === seq[0]) ? 1 : 0;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
